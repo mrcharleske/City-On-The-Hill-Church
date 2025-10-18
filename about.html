@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - City On The Hill Church International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #f59e0b 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #f59e0b, #3b82f6);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #f59e0b;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-item::before {
+                left: 1rem;
+            }
+            .timeline-dot {
+                left: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-blue-800">City On The Hill Church</h1>
+                        <p class="text-xs text-gray-600">International</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="#about" class="text-blue-800 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="services.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sermons</a>
+                        <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ministries</a>
+                        <a href="#contact" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="tel:+254737509399" class="text-blue-800 hover:text-yellow-500 text-sm">
+                        <i class="fas fa-phone mr-1"></i> +254 737 509 399
+                    </a>
+                    <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-700">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="#about" class="text-blue-800 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="services.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Sermons</a>
+                <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Ministries</a>
+                <a href="#contact" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-16 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                    About <span class="text-gradient">Our Church</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Discover our heart, history, and mission to shine Christ's light to all nations
+                </p>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto" data-aos="fade-up" data-aos-delay="400"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div data-aos="fade-right">
+                    <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Mission</h2>
+                    <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+                        To be an <strong>Impeccable Light</strong> in our community and beyond, faithfully proclaiming the Gospel of Jesus Christ and making disciples of all nations. We are committed to <strong>Shining The Light Of Christ To The Nations</strong> through authentic worship, biblical teaching, and compassionate service.
+                    </p>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        As Jesus declared in Matthew 5:14, "You are the light of the world. A town built on a hill cannot be hidden." We embrace this calling to be a beacon of hope, love, and truth in our generation.
+                    </p>
+                </div>
+                <div class="bg-blue-50 rounded-2xl p-8" data-aos="fade-left">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-globe text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
+                        <p class="text-gray-600 text-lg leading-relaxed">
+                            To see transformed lives, strengthened families, and thriving communities as we advance God's Kingdom locally and internationally through the power of the Gospel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Core Values</h2>
+                <p class="text-xl text-gray-600">The principles that guide everything we do</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-book-open text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Biblical Authority</h3>
+                    <p class="text-gray-600 text-center">We believe the Bible is God's inspired Word and the ultimate authority for faith and life.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-heart text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Authentic Love</h3>
+                    <p class="text-gray-600 text-center">We demonstrate Christ's love through genuine relationships and sacrificial service.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-users text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Community</h3>
+                    <p class="text-gray-600 text-center">We foster deep connections and support one another in our spiritual journey.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-praying-hands text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Prayer</h3>
+                    <p class="text-gray-600 text-center">We depend on God through consistent prayer and seek His guidance in all things.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hands-helping text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Service</h3>
+                    <p class="text-gray-600 text-center">We serve others with humility, following Christ's example of servant leadership.</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-8 shadow-lg card-hover" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-seedling text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Growth</h3>
+                    <p class="text-gray-600 text-center">We are committed to continuous spiritual growth and discipleship development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Church History Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Journey</h2>
+                <p class="text-xl text-gray-600">God's faithfulness through the years</p>
+            </div>
+            
+            <div class="relative">
+                <div class="timeline-item mb-16" data-aos="fade-up" data-aos-delay="100">
+                    <div class="timeline-dot"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="md:text-right md:pr-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">The Beginning</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                City On The Hill Church International was founded with a vision to create a community where people from all nations could come together to worship, grow, and serve. Our founders felt called to establish a church that would truly embody the international heart of the Gospel.
+                            </p>
+                        </div>
+                        <div class="bg-blue-50 rounded-xl p-6">
+                            <div class="text-center">
+                                <i class="fas fa-church text-4xl text-blue-600 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800">Foundation Laid</h4>
+                                <p class="text-gray-600">Built on the Rock of Christ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item mb-16" data-aos="fade-up" data-aos-delay="200">
+                    <div class="timeline-dot"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-yellow-50 rounded-xl p-6 md:order-1">
+                            <div class="text-center">
+                                <i class="fas fa-users text-4xl text-yellow-600 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800">Growing Community</h4>
+                                <p class="text-gray-600">Families and individuals joining</p>
+                            </div>
+                        </div>
+                        <div class="md:pl-8 md:order-2">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Community Growth</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                As our church family grew, we established various ministries to serve different age groups and needs. From children's ministry to senior fellowship, we created spaces where everyone could find their place and purpose in God's Kingdom.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item mb-16" data-aos="fade-up" data-aos-delay="300">
+                    <div class="timeline-dot"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="md:text-right md:pr-8">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">International Outreach</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                True to our international calling, we began supporting missions and outreach programs across different nations. Our heart for global evangelism led us to partner with churches and organizations worldwide, truly becoming a light to the nations.
+                            </p>
+                        </div>
+                        <div class="bg-green-50 rounded-xl p-6">
+                            <div class="text-center">
+                                <i class="fas fa-globe-africa text-4xl text-green-600 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800">Global Impact</h4>
+                                <p class="text-gray-600">Reaching nations for Christ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="timeline-dot"></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-purple-50 rounded-xl p-6 md:order-1">
+                            <div class="text-center">
+                                <i class="fas fa-arrow-up text-4xl text-purple-600 mb-4"></i>
+                                <h4 class="text-lg font-semibold text-gray-800">Continuing Forward</h4>
+                                <p class="text-gray-600">Building for the future</p>
+                            </div>
+                        </div>
+                        <div class="md:pl-8 md:order-2">
+                            <h3 class="text-2xl font-bold text-gray-800 mb-3">Today & Beyond</h3>
+                            <p class="text-gray-600 leading-relaxed">
+                                Today, we continue to grow and impact lives both locally and internationally. With modern technology and traditional values, we're reaching more people than ever before while maintaining our commitment to biblical truth and authentic community.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Our Leadership</h2>
+                <p class="text-xl text-gray-600">Shepherds called to serve God's people</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 h-48 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-blue-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Senior Pastor</h3>
+                        <p class="text-blue-600 font-semibold mb-3">Lead Pastor</p>
+                        <p class="text-gray-600 text-sm">
+                            Passionate about preaching God's Word and shepherding the flock with love and wisdom.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 h-48 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-purple-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Associate Pastor</h3>
+                        <p class="text-purple-600 font-semibold mb-3">Discipleship & Growth</p>
+                        <p class="text-gray-600 text-sm">
+                            Dedicated to helping believers grow in their faith and develop into mature disciples of Christ.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 h-48 flex items-center justify-center">
+                        <div class="w-24 h-24 bg-white rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-green-600"></i>
+                        </div>
+                    </div>
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Worship Pastor</h3>
+                        <p class="text-green-600 font-semibold mb-3">Music & Worship</p>
+                        <p class="text-gray-600 text-sm">
+                            Leading our congregation in heartfelt worship and creating an atmosphere for God's presence.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-6">Join Our Church Family</h2>
+                <p class="text-xl mb-8 max-w-3xl mx-auto">
+                    We'd love to welcome you into our community of believers. Come as you are and discover God's amazing plan for your life.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <button class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg">
+                        Visit This Sunday
+                    </button>
+                    <button class="bg-transparent text-white px-8 py-4 rounded-full font-semibold text-lg border-2 border-white hover:bg-white hover:text-blue-800 transition-all">
+                        Contact Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">City On The Hill Church International</h3>
+                    <p class="text-gray-300 mb-4">Shining the Light of Christ to the Nations</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/254737509399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Services</a></li>
+                        <li><a href="ministries.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Ministries</a></li>
+                        <li><a href="sermons.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Sermons</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Service Times</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Sunday: 9:00 AM & 11:30 AM</li>
+                        <li>Wednesday: 7:00 PM</li>
+                        <li>Friday: 7:00 PM</li>
+                        <li>Saturday: 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>
+                            <i class="fas fa-phone mr-2"></i>
+                            <a href="tel:+254737509399" class="hover:text-yellow-400 transition-colors">+254 737 509 399</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            <a href="https://wa.me/254737509399" target="_blank" class="hover:text-green-400 transition-colors">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:cityonthehill.mi@gmail.com" class="hover:text-yellow-400 transition-colors">cityonthehill.mi@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 City On The Hill Church International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990be60734128a67',t:'MTc2MDgzMTAxMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
