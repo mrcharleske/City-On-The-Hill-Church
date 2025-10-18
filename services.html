@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Events - City On The Hill Church International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #f59e0b 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .service-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.95));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .event-badge {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .calendar-day {
+            transition: all 0.3s ease;
+        }
+        
+        .calendar-day:hover {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-xl font-bold text-blue-800">City On The Hill Church</h1>
+                        <p class="text-xs text-gray-600">International</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="#services" class="text-blue-800 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sermons</a>
+                        <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ministries</a>
+                        <a href="#contact" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="tel:+254737509399" class="text-blue-800 hover:text-yellow-500 text-sm">
+                        <i class="fas fa-phone mr-1"></i> +254 737 509 399
+                    </a>
+                    <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-700">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="#services" class="text-blue-800 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Sermons</a>
+                <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Ministries</a>
+                <a href="#contact" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-16 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                    Services & <span class="text-gradient">Events</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Join us for worship, fellowship, and life-changing encounters with God
+                </p>
+                <div class="w-24 h-1 bg-yellow-400 mx-auto" data-aos="fade-up" data-aos-delay="400"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Times -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Weekly Services</h2>
+                <p class="text-xl text-gray-600">Come and worship with us every week</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="service-card rounded-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-sun text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sunday Morning</h3>
+                        <p class="text-2xl font-bold text-blue-600 mb-2">9:00 AM</p>
+                        <p class="text-gray-600 mb-4">Main worship service with inspiring messages and powerful worship</p>
+                        <div class="space-y-2 text-sm text-gray-500">
+                            <p><i class="fas fa-clock mr-2"></i>Duration: 2 hours</p>
+                            <p><i class="fas fa-users mr-2"></i>All ages welcome</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card rounded-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-church text-2xl text-yellow-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Sunday Evening</h3>
+                        <p class="text-2xl font-bold text-yellow-600 mb-2">11:30 AM</p>
+                        <p class="text-gray-600 mb-4">Second service for those who prefer later worship times</p>
+                        <div class="space-y-2 text-sm text-gray-500">
+                            <p><i class="fas fa-clock mr-2"></i>Duration: 2 hours</p>
+                            <p><i class="fas fa-users mr-2"></i>Family friendly</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card rounded-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-book-open text-2xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Wednesday</h3>
+                        <p class="text-2xl font-bold text-green-600 mb-2">7:00 PM</p>
+                        <p class="text-gray-600 mb-4">Bible study and prayer meeting for spiritual growth</p>
+                        <div class="space-y-2 text-sm text-gray-500">
+                            <p><i class="fas fa-clock mr-2"></i>Duration: 1.5 hours</p>
+                            <p><i class="fas fa-praying-hands mr-2"></i>Prayer focused</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-card rounded-xl p-8 card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-hands-praying text-2xl text-purple-600"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Friday</h3>
+                        <p class="text-2xl font-bold text-purple-600 mb-2">7:00 PM</p>
+                        <p class="text-gray-600 mb-4">Prayer and intercession service for breakthrough</p>
+                        <div class="space-y-2 text-sm text-gray-500">
+                            <p><i class="fas fa-clock mr-2"></i>Duration: 2 hours</p>
+                            <p><i class="fas fa-fire mr-2"></i>Spirit-filled</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="500">
+                <div class="bg-blue-50 rounded-xl p-8 max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Special Saturday Service</h3>
+                    <p class="text-lg text-gray-600 mb-4">Join us every Saturday at 6:00 PM for our special evening service featuring contemporary worship and relevant biblical teaching.</p>
+                    <button class="btn-primary text-white px-6 py-3 rounded-full font-semibold">
+                        Get Directions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Upcoming Events</h2>
+                <p class="text-xl text-gray-600">Don't miss these special gatherings and celebrations</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 h-48 flex items-center justify-center relative">
+                        <i class="fas fa-calendar-alt text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4">
+                            <span class="event-badge">This Month</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Monthly Prayer Conference</h3>
+                        <p class="text-gray-600 mb-4">Join us for an intensive time of prayer, worship, and seeking God's face for breakthrough in our lives and community.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fas fa-calendar mr-2"></i>Last Saturday</p>
+                                <p><i class="fas fa-clock mr-2"></i>6:00 PM - 9:00 PM</p>
+                            </div>
+                            <button class="text-blue-600 font-semibold hover:text-blue-800 transition-colors">RSVP →</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 h-48 flex items-center justify-center relative">
+                        <i class="fas fa-users text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4">
+                            <span class="event-badge">Quarterly</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Family Fun Day</h3>
+                        <p class="text-gray-600 mb-4">A special day for families to come together, enjoy games, food, and fellowship while building stronger community bonds.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fas fa-calendar mr-2"></i>Every 3 months</p>
+                                <p><i class="fas fa-clock mr-2"></i>10:00 AM - 4:00 PM</p>
+                            </div>
+                            <button class="text-green-600 font-semibold hover:text-green-800 transition-colors">RSVP →</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 h-48 flex items-center justify-center relative">
+                        <i class="fas fa-graduation-cap text-6xl text-white"></i>
+                        <div class="absolute top-4 right-4">
+                            <span class="event-badge">Annual</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Leadership Conference</h3>
+                        <p class="text-gray-600 mb-4">Equipping current and emerging leaders with biblical principles and practical skills for effective ministry and service.</p>
+                        <div class="flex items-center justify-between">
+                            <div class="text-sm text-gray-500">
+                                <p><i class="fas fa-calendar mr-2"></i>Once yearly</p>
+                                <p><i class="fas fa-clock mr-2"></i>3-day event</p>
+                            </div>
+                            <button class="text-purple-600 font-semibold hover:text-purple-800 transition-colors">RSVP →</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Activities -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Weekly Activities</h2>
+                <p class="text-xl text-gray-600">Stay connected throughout the week</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">This Week's Schedule</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="calendar-day bg-white rounded-lg p-4 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold text-blue-600">SUN</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Sunday Services</h4>
+                                        <p class="text-sm text-gray-600">9:00 AM & 11:30 AM</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-church text-blue-600"></i>
+                            </div>
+                            
+                            <div class="calendar-day bg-white rounded-lg p-4 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold text-green-600">WED</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Bible Study</h4>
+                                        <p class="text-sm text-gray-600">7:00 PM</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-book-open text-green-600"></i>
+                            </div>
+                            
+                            <div class="calendar-day bg-white rounded-lg p-4 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold text-purple-600">FRI</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Prayer Meeting</h4>
+                                        <p class="text-sm text-gray-600">7:00 PM</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-praying-hands text-purple-600"></i>
+                            </div>
+                            
+                            <div class="calendar-day bg-white rounded-lg p-4 flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                                        <span class="font-bold text-yellow-600">SAT</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-800">Evening Service</h4>
+                                        <p class="text-sm text-gray-600">6:00 PM</p>
+                                    </div>
+                                </div>
+                                <i class="fas fa-star text-yellow-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Additional Programs</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-child text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Children's Ministry</h4>
+                                <p class="text-gray-600">Every Sunday during main services. Age-appropriate lessons, games, and activities for kids 3-12 years old.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-users text-green-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Youth Fellowship</h4>
+                                <p class="text-gray-600">Saturdays at 4:00 PM. Dynamic programs for teenagers including worship, games, and relevant biblical teaching.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-heart text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Small Groups</h4>
+                                <p class="text-gray-600">Various times throughout the week. Intimate fellowship groups meeting in homes for deeper relationships and study.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fas fa-music text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-2">Choir Practice</h4>
+                                <p class="text-gray-600">Thursdays at 6:00 PM. Join our worship team and use your musical gifts to glorify God and bless the congregation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Programs -->
+    <section class="py-20 bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-6">Special Programs</h2>
+                <p class="text-xl max-w-3xl mx-auto">Unique opportunities for growth, service, and spiritual development</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <i class="fas fa-graduation-cap text-4xl text-yellow-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Discipleship School</h3>
+                        <p class="text-blue-100 mb-4">Comprehensive biblical training program for new believers and those seeking deeper spiritual growth.</p>
+                        <button class="text-yellow-300 font-semibold hover:text-yellow-100 transition-colors">Learn More →</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <i class="fas fa-hands-helping text-4xl text-yellow-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Community Outreach</h3>
+                        <p class="text-blue-100 mb-4">Regular programs to serve our local community through food drives, medical camps, and social services.</p>
+                        <button class="text-yellow-300 font-semibold hover:text-yellow-100 transition-colors">Get Involved →</button>
+                    </div>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 rounded-xl p-8 backdrop-blur-sm card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <i class="fas fa-globe text-4xl text-yellow-300 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Missions Program</h3>
+                        <p class="text-blue-100 mb-4">International missions trips and support for missionaries spreading the Gospel to unreached nations.</p>
+                        <button class="text-yellow-300 font-semibold hover:text-yellow-100 transition-colors">Join Mission →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Visit Us</h2>
+                <p class="text-xl text-gray-600">We'd love to welcome you to our church family</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Service Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-map-marker-alt text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Location</h4>
+                                    <p class="text-gray-600">Nairobi, Kenya</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-phone text-green-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Phone</h4>
+                                    <p class="text-gray-600">+254 737 509 399</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-envelope text-yellow-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Email</h4>
+                                    <p class="text-gray-600">cityonthehill.mi@gmail.com</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fab fa-whatsapp text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">WhatsApp</h4>
+                                    <p class="text-gray-600">Quick contact via WhatsApp</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-gray-200">
+                            <h4 class="font-semibold text-gray-800 mb-4">What to Expect</h4>
+                            <ul class="space-y-2 text-gray-600">
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Warm, welcoming atmosphere</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Contemporary worship music</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Biblical, practical teaching</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Children's programs available</li>
+                                <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Fellowship after service</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6">Plan Your Visit</h3>
+                        
+                        <form class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your full name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+254 xxx xxx xxx">
+                            </div>
+                            
+                            <div>
+                                <label for="service" class="block text-sm font-medium text-gray-700 mb-2">Preferred Service</label>
+                                <select id="service" name="service" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                                    <option value="">Select a service</option>
+                                    <option value="sunday-9am">Sunday 9:00 AM</option>
+                                    <option value="sunday-1130am">Sunday 11:30 AM</option>
+                                    <option value="wednesday">Wednesday 7:00 PM</option>
+                                    <option value="friday">Friday 7:00 PM</option>
+                                    <option value="saturday">Saturday 6:00 PM</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message (Optional)</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Any questions or special requests?"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-lg">
+                                Send Visit Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">City On The Hill Church International</h3>
+                    <p class="text-gray-300 mb-4">Shining the Light of Christ to the Nations</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/254737509399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a></li>
+                        <li><a href="ministries.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Ministries</a></li>
+                        <li><a href="sermons.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Sermons</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Service Times</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Sunday: 9:00 AM & 11:30 AM</li>
+                        <li>Wednesday: 7:00 PM</li>
+                        <li>Friday: 7:00 PM</li>
+                        <li>Saturday: 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>
+                            <i class="fas fa-phone mr-2"></i>
+                            <a href="tel:+254737509399" class="hover:text-yellow-400 transition-colors">+254 737 509 399</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            <a href="https://wa.me/254737509399" target="_blank" class="hover:text-green-400 transition-colors">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:cityonthehill.mi@gmail.com" class="hover:text-yellow-400 transition-colors">cityonthehill.mi@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 City On The Hill Church International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const service = formData.get('service');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            button.textContent = 'Request Sent!';
+            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            
+            // Reset form after 2 seconds
+            setTimeout(() => {
+                this.reset();
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
+            }, 2000);
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white', 'shadow-lg');
+            } else {
+                nav.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990bede5b2c68a67',t:'MTc2MDgzMTMzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
