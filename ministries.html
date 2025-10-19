@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministries - City On The Hill Church International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #f59e0b 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .ministry-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .ministry-icon {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+        }
+        
+        .category-tab {
+            transition: all 0.3s ease;
+        }
+        
+        .category-tab.active {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+        }
+        
+        .ministry-detail {
+            display: none;
+        }
+        
+        .ministry-detail.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-xl font-bold text-blue-800">City On The Hill Church</a>
+                        <p class="text-xs text-gray-600">International</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="services.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sermons</a>
+                        <a href="ministries.html" class="text-blue-800 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ministries</a>
+                        <a href="index.html#contact" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="tel:+254737509399" class="text-blue-800 hover:text-yellow-500 text-sm">
+                        <i class="fas fa-phone mr-1"></i> +254 737 509 399
+                    </a>
+                    <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-700">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="services.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Sermons</a>
+                <a href="ministries.html" class="text-blue-800 block px-3 py-2 rounded-md text-base font-medium">Ministries</a>
+                <a href="index.html#contact" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-16 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                    Our <span class="text-gradient">Ministries</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    Discover Your Purpose and Make a Difference
+                </p>
+                <p class="text-lg mb-12 max-w-2xl mx-auto text-blue-100" data-aos="fade-up" data-aos-delay="400">
+                    Every believer has been gifted by God to serve His Kingdom. Find your place to grow, serve, and impact lives for Christ.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#get-involved" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-block">
+                        Get Involved Today
+                    </a>
+                    <a href="#ministries-overview" class="btn-secondary text-white px-8 py-4 rounded-full font-semibold text-lg inline-block">
+                        Explore Ministries
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Categories -->
+    <section id="ministries-overview" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Ministry Categories</h2>
+                <p class="text-xl text-gray-600">Choose a category to explore our ministries</p>
+            </div>
+            
+            <!-- Category Tabs -->
+            <div class="flex flex-wrap justify-center gap-4 mb-12" data-aos="fade-up" data-aos-delay="200">
+                <button class="category-tab active px-6 py-3 rounded-full font-semibold transition-colors" data-category="all">
+                    All Ministries
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors" data-category="worship">
+                    Worship & Arts
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors" data-category="discipleship">
+                    Discipleship
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors" data-category="outreach">
+                    Outreach & Missions
+                </button>
+                <button class="category-tab px-6 py-3 rounded-full font-semibold bg-gray-200 text-gray-700 hover:bg-gray-300 transition-colors" data-category="support">
+                    Support & Care
+                </button>
+            </div>
+            
+            <!-- Ministry Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Worship & Arts Ministries -->
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="worship" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-music text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Worship Team</h3>
+                        <p class="text-gray-600 mb-4">Lead the congregation in heartfelt worship through music, vocals, and instruments.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i> Sundays & Rehearsals
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('worship-team')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="worship" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-theater-masks text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Drama Ministry</h3>
+                        <p class="text-gray-600 mb-4">Use creative arts and drama to communicate God's message in powerful ways.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i> Special Events
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('drama')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="worship" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-video text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Media Ministry</h3>
+                        <p class="text-gray-600 mb-4">Handle audio, video, lighting, and live streaming for all church services.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i> All Services
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('media')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Discipleship Ministries -->
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="discipleship" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-child text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Children's Ministry</h3>
+                        <p class="text-gray-600 mb-4">Nurture young hearts with age-appropriate Bible lessons, games, and activities.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-users mr-1"></i> Ages 3-12
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('children')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="discipleship" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Youth Ministry</h3>
+                        <p class="text-gray-600 mb-4">Empower teenagers to live boldly for Christ through fellowship and discipleship.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-users mr-1"></i> Ages 13-18
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('youth')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="discipleship" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book-open text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Small Groups</h3>
+                        <p class="text-gray-600 mb-4">Connect in intimate fellowship through Bible study and prayer groups.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i> Weekly Meetings
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('small-groups')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="discipleship" data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-female text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Women's Ministry</h3>
+                        <p class="text-gray-600 mb-4">Encourage and equip women to grow in their faith and relationships.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-1"></i> Monthly Meetings
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('women')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="discipleship" data-aos="fade-up" data-aos-delay="500">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-male text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Men's Ministry</h3>
+                        <p class="text-gray-600 mb-4">Build strong Christian men through fellowship, accountability, and service.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-calendar mr-1"></i> Monthly Meetings
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('men')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Outreach & Missions -->
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="outreach" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-globe text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Missions</h3>
+                        <p class="text-gray-600 mb-4">Reach the unreached and spread the Gospel to all nations through missions.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-plane mr-1"></i> Local & International
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('missions')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="outreach" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-helping text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Community Outreach</h3>
+                        <p class="text-gray-600 mb-4">Serve our local community through various outreach programs and events.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-heart mr-1"></i> Community Service
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('outreach')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="outreach" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-seedling text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Church Planting</h3>
+                        <p class="text-gray-600 mb-4">Establish new churches and expand God's Kingdom in unreached areas.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-map mr-1"></i> Strategic Locations
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('church-planting')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Support & Care -->
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="support" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-door-open text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Hospitality Team</h3>
+                        <p class="text-gray-600 mb-4">Welcome guests and create a warm, friendly atmosphere for all visitors.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-handshake mr-1"></i> First Impressions
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('hospitality')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="support" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-hands-praying text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Prayer Ministry</h3>
+                        <p class="text-gray-600 mb-4">Intercede for the church, community, and nations through dedicated prayer.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-clock mr-1"></i> 24/7 Prayer Chain
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('prayer')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="ministry-card rounded-xl shadow-lg p-6 card-hover ministry-item" data-category="support" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <div class="w-16 h-16 ministry-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Pastoral Care</h3>
+                        <p class="text-gray-600 mb-4">Provide emotional and spiritual support during life's challenging moments.</p>
+                        <div class="text-sm text-gray-500 mb-4">
+                            <i class="fas fa-phone mr-1"></i> Available 24/7
+                        </div>
+                        <button class="btn-secondary text-white px-6 py-2 rounded-full font-semibold" onclick="showMinistryDetails('pastoral-care')">
+                            Learn More
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ministry Details Modal -->
+    <div id="ministry-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 id="modal-title" class="text-2xl font-bold text-gray-800"></h3>
+                    <button onclick="closeMinistryModal()" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-2xl"></i>
+                    </button>
+                </div>
+                <div id="modal-content"></div>
+                <div class="mt-8 text-center">
+                    <button onclick="closeMinistryModal(); document.getElementById('volunteer-form').scrollIntoView({behavior: 'smooth'})" class="btn-primary text-white px-8 py-3 rounded-full font-semibold text-lg">
+                        Join This Ministry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Get Involved Section -->
+    <section id="get-involved" class="py-20 bg-blue-800 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold mb-6">Ready to Get Involved?</h2>
+                <p class="text-xl max-w-3xl mx-auto">Take the next step and join a ministry that matches your passion and calling</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-bold mb-8">Why Serve?</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-heart text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Discover Your Purpose</h4>
+                                <p class="text-blue-100">God has uniquely gifted you to serve His Kingdom. Find your calling and make an eternal impact.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-users text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Build Relationships</h4>
+                                <p class="text-blue-100">Connect with like-minded believers and form lasting friendships through serving together.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-seedling text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Grow Spiritually</h4>
+                                <p class="text-blue-100">Serving others is one of the best ways to grow in your faith and become more like Christ.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-white bg-opacity-20 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-hands-helping text-yellow-300"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg mb-2">Make a Difference</h4>
+                                <p class="text-blue-100">Your service directly impacts lives and helps advance God's Kingdom on earth.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-bold mb-8">Join a Ministry</h3>
+                    
+                    <form id="volunteer-form" class="space-y-6">
+                        <div>
+                            <label for="volunteer-name" class="block text-sm font-medium mb-2">Full Name</label>
+                            <input type="text" id="volunteer-name" name="name" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-yellow-400 focus:border-transparent" placeholder="Your full name" required>
+                        </div>
+                        
+                        <div>
+                            <label for="volunteer-email" class="block text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" id="volunteer-email" name="email" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-yellow-400 focus:border-transparent" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="volunteer-phone" class="block text-sm font-medium mb-2">Phone Number</label>
+                            <input type="tel" id="volunteer-phone" name="phone" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-yellow-400 focus:border-transparent" placeholder="+254 xxx xxx xxx">
+                        </div>
+                        
+                        <div>
+                            <label for="ministry-interest" class="block text-sm font-medium mb-2">Ministry Interest</label>
+                            <select id="ministry-interest" name="ministry" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white focus:ring-2 focus:ring-yellow-400 focus:border-transparent" required>
+                                <option value="" class="text-gray-800">Select a ministry</option>
+                                <option value="worship-team" class="text-gray-800">Worship Team</option>
+                                <option value="children" class="text-gray-800">Children's Ministry</option>
+                                <option value="youth" class="text-gray-800">Youth Ministry</option>
+                                <option value="media" class="text-gray-800">Media Ministry</option>
+                                <option value="hospitality" class="text-gray-800">Hospitality Team</option>
+                                <option value="prayer" class="text-gray-800">Prayer Ministry</option>
+                                <option value="missions" class="text-gray-800">Missions</option>
+                                <option value="outreach" class="text-gray-800">Community Outreach</option>
+                                <option value="small-groups" class="text-gray-800">Small Groups</option>
+                                <option value="other" class="text-gray-800">Other (specify in message)</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="volunteer-experience" class="block text-sm font-medium mb-2">Experience & Skills</label>
+                            <textarea id="volunteer-experience" name="experience" rows="4" class="w-full px-4 py-3 bg-white bg-opacity-10 border border-white border-opacity-20 rounded-lg text-white placeholder-blue-200 focus:ring-2 focus:ring-yellow-400 focus:border-transparent" placeholder="Tell us about your relevant experience, skills, or why you're interested in this ministry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-lg">
+                            Submit Application
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">City On The Hill Church International</h3>
+                    <p class="text-gray-300 mb-4">Shining the Light of Christ to the Nations</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/254737509399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Services</a></li>
+                        <li><a href="sermons.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Sermons</a></li>
+                        <li><a href="ministries.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Ministries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Service Times</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Sunday: 9:00 AM & 11:30 AM</li>
+                        <li>Wednesday: 7:00 PM</li>
+                        <li>Friday: 7:00 PM</li>
+                        <li>Saturday: 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>
+                            <i class="fas fa-phone mr-2"></i>
+                            <a href="tel:+254737509399" class="hover:text-yellow-400 transition-colors">+254 737 509 399</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            <a href="https://wa.me/254737509399" target="_blank" class="hover:text-green-400 transition-colors">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:cityonthehill.mi@gmail.com" class="hover:text-yellow-400 transition-colors">cityonthehill.mi@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 City On The Hill Church International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Ministry filtering
+        const categoryTabs = document.querySelectorAll('.category-tab');
+        const ministryItems = document.querySelectorAll('.ministry-item');
+
+        categoryTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const category = tab.getAttribute('data-category');
+                
+                // Update active tab
+                categoryTabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.classList.add('bg-gray-200', 'text-gray-700');
+                    t.classList.remove('text-white');
+                });
+                tab.classList.add('active');
+                tab.classList.remove('bg-gray-200', 'text-gray-700');
+                tab.classList.add('text-white');
+                
+                // Filter ministry items
+                ministryItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Ministry details data
+        const ministryDetails = {
+            'worship-team': {
+                title: 'Worship Team',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Join our passionate worship team and help lead the congregation in heartfelt worship and praise to our Almighty God.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Lead worship during Sunday services</li>
+                                <li>Participate in special events and concerts</li>
+                                <li>Weekly rehearsals and practice sessions</li>
+                                <li>Mentor new musicians and vocalists</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Heart for worship and ministry</li>
+                                <li>Musical ability (vocals or instruments)</li>
+                                <li>Commitment to regular attendance</li>
+                                <li>Willingness to grow and learn</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Time Commitment:</h4>
+                            <p class="text-gray-600">Weekly rehearsals (Thursdays 7-9 PM) and Sunday services</p>
+                        </div>
+                    </div>
+                `
+            },
+            'children': {
+                title: 'Children\'s Ministry',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Help nurture young hearts with age-appropriate Bible lessons, games, and activities that make learning about God fun and engaging.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Teach Bible stories and lessons</li>
+                                <li>Lead games and creative activities</li>
+                                <li>Organize special events and programs</li>
+                                <li>Provide a safe, loving environment</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Age Groups:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Toddlers (2-3 years)</li>
+                                <li>Preschool (4-5 years)</li>
+                                <li>Elementary (6-12 years)</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Love for children and ministry</li>
+                                <li>Background check clearance</li>
+                                <li>Patience and creativity</li>
+                                <li>Commitment to child safety protocols</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'youth': {
+                title: 'Youth Ministry',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Empower teenagers to live boldly for Christ through fellowship, discipleship, and relevant teaching that speaks to their generation.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Weekly youth services and Bible studies</li>
+                                <li>Fun activities and outings</li>
+                                <li>Mentorship and discipleship programs</li>
+                                <li>Community service projects</li>
+                                <li>Summer camps and retreats</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Target Age:</h4>
+                            <p class="text-gray-600">Teenagers aged 13-18 years</p>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Heart for youth ministry</li>
+                                <li>Ability to relate to teenagers</li>
+                                <li>Background check clearance</li>
+                                <li>Commitment to regular involvement</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'media': {
+                title: 'Media Ministry',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Use your technical skills to enhance worship experiences through professional audio, video, lighting, and live streaming services.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Audio mixing for services and events</li>
+                                <li>Video production and live streaming</li>
+                                <li>Lighting design and operation</li>
+                                <li>Equipment maintenance and setup</li>
+                                <li>Recording sermons and special events</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Skills Needed:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Technical aptitude (training provided)</li>
+                                <li>Attention to detail</li>
+                                <li>Reliability and punctuality</li>
+                                <li>Willingness to learn new technology</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Time Commitment:</h4>
+                            <p class="text-gray-600">Sunday services and special events (rotating schedule available)</p>
+                        </div>
+                    </div>
+                `
+            },
+            'small-groups': {
+                title: 'Small Groups',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Lead or participate in intimate fellowship groups focused on Bible study, prayer, and building meaningful relationships.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Weekly Bible study and discussion</li>
+                                <li>Prayer and mutual support</li>
+                                <li>Fellowship and relationship building</li>
+                                <li>Community service projects</li>
+                                <li>Social activities and outings</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Group Types:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Mixed adult groups</li>
+                                <li>Men's groups</li>
+                                <li>Women's groups</li>
+                                <li>Young adults</li>
+                                <li>Couples groups</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Leadership Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Mature faith and biblical knowledge</li>
+                                <li>Leadership and facilitation skills</li>
+                                <li>Heart for discipleship</li>
+                                <li>Commitment to group members</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'missions': {
+                title: 'Missions',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Join us in reaching the unreached and spreading the Gospel to all nations through local and international mission work.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Mission Areas:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Local evangelism and outreach</li>
+                                <li>International mission trips</li>
+                                <li>Church planting support</li>
+                                <li>Missionary support and prayer</li>
+                                <li>Cross-cultural ministry</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Opportunities:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Short-term mission trips</li>
+                                <li>Long-term missionary service</li>
+                                <li>Mission support and fundraising</li>
+                                <li>Prayer team participation</li>
+                                <li>Cultural training and preparation</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Heart for evangelism</li>
+                                <li>Cultural sensitivity</li>
+                                <li>Flexibility and adaptability</li>
+                                <li>Commitment to training</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'hospitality': {
+                title: 'Hospitality Team',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Create a warm, welcoming atmosphere for all visitors and help them feel at home in our church family.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">What We Do:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Greet visitors and members</li>
+                                <li>Provide information and directions</li>
+                                <li>Serve refreshments after services</li>
+                                <li>Help with special events</li>
+                                <li>Follow up with first-time visitors</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Roles Available:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Door greeters</li>
+                                <li>Information desk volunteers</li>
+                                <li>Refreshment servers</li>
+                                <li>Parking attendants</li>
+                                <li>Event coordinators</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Friendly and outgoing personality</li>
+                                <li>Heart for hospitality</li>
+                                <li>Punctuality and reliability</li>
+                                <li>Willingness to serve others</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            'prayer': {
+                title: 'Prayer Ministry',
+                content: `
+                    <div class="space-y-6">
+                        <p class="text-gray-600 text-lg">Join our dedicated prayer warriors in interceding for the church, community, and nations through focused prayer ministry.</p>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Prayer Activities:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Weekly prayer meetings</li>
+                                <li>24/7 prayer chain participation</li>
+                                <li>Prayer for church services</li>
+                                <li>Intercessory prayer for missions</li>
+                                <li>Prayer walks in the community</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Special Focus Areas:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Church leadership and vision</li>
+                                <li>Community transformation</li>
+                                <li>National and global issues</li>
+                                <li>Personal prayer requests</li>
+                                <li>Healing and breakthrough</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Requirements:</h4>
+                            <ul class="list-disc list-inside space-y-2 text-gray-600">
+                                <li>Strong prayer life</li>
+                                <li>Commitment to confidentiality</li>
+                                <li>Heart for intercession</li>
+                                <li>Availability for prayer meetings</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Show ministry details
+        function showMinistryDetails(ministryId) {
+            const modal = document.getElementById('ministry-modal');
+            const title = document.getElementById('modal-title');
+            const content = document.getElementById('modal-content');
+            
+            const ministry = ministryDetails[ministryId];
+            if (ministry) {
+                title.textContent = ministry.title;
+                content.innerHTML = ministry.content;
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        // Close ministry modal
+        function closeMinistryModal() {
+            const modal = document.getElementById('ministry-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('ministry-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeMinistryModal();
+            }
+        });
+
+        // Form submission
+        document.getElementById('volunteer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            button.textContent = 'Application Submitted!';
+            button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            
+            setTimeout(() => {
+                this.reset();
+                button.textContent = originalText;
+                button.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
+            }, 3000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990c0cce37d98a67',t:'MTc2MDgzMjYwMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
