@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - City On The Hill Church International</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #f59e0b 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #d97706, #f59e0b);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.3);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .contact-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,1));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .contact-icon {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-content.active {
+            max-height: 200px;
+        }
+        
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <a href="index.html" class="text-xl font-bold text-blue-800">City On The Hill Church</a>
+                        <p class="text-xs text-gray-600">International</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="index.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                        <a href="about.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">About</a>
+                        <a href="services.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Services</a>
+                        <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sermons</a>
+                        <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Ministries</a>
+                        <a href="contact.html" class="text-blue-800 hover:text-yellow-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contact</a>
+                    </div>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="hidden lg:flex items-center space-x-4">
+                    <a href="tel:+254737509399" class="text-blue-800 hover:text-yellow-500 text-sm">
+                        <i class="fas fa-phone mr-1"></i> +254 737 509 399
+                    </a>
+                    <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-700">
+                        <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-blue-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="about.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">About</a>
+                <a href="services.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Services</a>
+                <a href="sermons.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Sermons</a>
+                <a href="ministries.html" class="text-gray-700 hover:text-yellow-500 block px-3 py-2 rounded-md text-base font-medium">Ministries</a>
+                <a href="contact.html" class="text-blue-800 block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white pt-16 pb-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">
+                    <span class="text-gradient">Contact</span> Us
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+                    We'd Love to Hear From You
+                </p>
+                <p class="text-lg mb-12 max-w-2xl mx-auto text-blue-100" data-aos="fade-up" data-aos-delay="400">
+                    Whether you have questions, need prayer, or want to get involved, we're here to connect with you. Reach out to us anytime!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center" data-aos="fade-up" data-aos-delay="600">
+                    <a href="tel:+254737509399" class="btn-primary text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center">
+                        <i class="fas fa-phone mr-2"></i> Call Now
+                    </a>
+                    <a href="https://wa.me/254737509399" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-full font-semibold text-lg inline-flex items-center justify-center transition-all">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600">Multiple ways to connect with our church family</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Phone Contact -->
+                <div class="contact-card rounded-xl shadow-lg p-6 text-center card-hover" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 contact-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Call Us</h3>
+                    <p class="text-gray-600 mb-4">Speak directly with our team</p>
+                    <a href="tel:+254737509399" class="text-blue-600 hover:text-blue-800 font-semibold">
+                        +254 737 509 399
+                    </a>
+                </div>
+                
+                <!-- WhatsApp Contact -->
+                <div class="contact-card rounded-xl shadow-lg p-6 text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fab fa-whatsapp text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">WhatsApp</h3>
+                    <p class="text-gray-600 mb-4">Quick messages anytime</p>
+                    <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-800 font-semibold">
+                        Send Message
+                    </a>
+                </div>
+                
+                <!-- Email Contact -->
+                <div class="contact-card rounded-xl shadow-lg p-6 text-center card-hover" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 contact-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Email Us</h3>
+                    <p class="text-gray-600 mb-4">Send detailed inquiries</p>
+                    <a href="mailto:cityonthehill.mi@gmail.com" class="text-blue-600 hover:text-blue-800 font-semibold text-sm">
+                        cityonthehill.mi@gmail.com
+                    </a>
+                </div>
+                
+                <!-- Visit Us -->
+                <div class="contact-card rounded-xl shadow-lg p-6 text-center card-hover" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 contact-icon rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Visit Us</h3>
+                    <p class="text-gray-600 mb-4">Join us for worship</p>
+                    <p class="text-blue-600 font-semibold text-sm">
+                        Sundays 9:00 AM & 11:30 AM
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form & Info Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div data-aos="fade-right">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8">Send Us a Message</h3>
+                    
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="first-name" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                <input type="text" id="first-name" name="firstName" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your first name" required>
+                            </div>
+                            <div>
+                                <label for="last-name" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                <input type="text" id="last-name" name="lastName" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your last name" required>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+254 xxx xxx xxx">
+                        </div>
+                        
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                            <select id="subject" name="subject" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="prayer">Prayer Request</option>
+                                <option value="ministry">Ministry Information</option>
+                                <option value="pastoral">Pastoral Care</option>
+                                <option value="events">Events & Programs</option>
+                                <option value="volunteer">Volunteer Opportunities</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="6" class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us how we can help you..." required></textarea>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <input type="checkbox" id="privacy" name="privacy" class="mt-1 mr-3" required>
+                            <label for="privacy" class="text-sm text-gray-600">
+                                I agree to the privacy policy and consent to my information being used to respond to my inquiry.
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold text-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Church Information -->
+                <div data-aos="fade-left">
+                    <h3 class="text-3xl font-bold text-gray-800 mb-8">Church Information</h3>
+                    
+                    <div class="space-y-8">
+                        <!-- Service Times -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-clock text-yellow-500 mr-3"></i>
+                                Service Times
+                            </h4>
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Sunday Morning</span>
+                                    <span class="text-gray-600">9:00 AM & 11:30 AM</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Wednesday Evening</span>
+                                    <span class="text-gray-600">7:00 PM</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Friday Evening</span>
+                                    <span class="text-gray-600">7:00 PM</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                    <span class="font-medium">Saturday Evening</span>
+                                    <span class="text-gray-600">6:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Details -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-info-circle text-blue-500 mr-3"></i>
+                                Contact Details
+                            </h4>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i class="fas fa-phone text-gray-400 mr-3 w-5"></i>
+                                    <div>
+                                        <p class="font-medium">Phone</p>
+                                        <a href="tel:+254737509399" class="text-blue-600 hover:text-blue-800">+254 737 509 399</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-envelope text-gray-400 mr-3 w-5"></i>
+                                    <div>
+                                        <p class="font-medium">Email</p>
+                                        <a href="mailto:cityonthehill.mi@gmail.com" class="text-blue-600 hover:text-blue-800 text-sm">cityonthehill.mi@gmail.com</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fab fa-whatsapp text-gray-400 mr-3 w-5"></i>
+                                    <div>
+                                        <p class="font-medium">WhatsApp</p>
+                                        <a href="https://wa.me/254737509399" target="_blank" class="text-green-600 hover:text-green-800">Send Message</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Emergency Contact -->
+                        <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-red-800 mb-4 flex items-center">
+                                <i class="fas fa-exclamation-triangle text-red-500 mr-3"></i>
+                                Emergency Contact
+                            </h4>
+                            <p class="text-red-700 mb-3">For urgent pastoral care or emergencies:</p>
+                            <div class="flex flex-col sm:flex-row gap-3">
+                                <a href="tel:+254737509399" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-semibold text-center transition-colors">
+                                    <i class="fas fa-phone mr-2"></i> Call Now
+                                </a>
+                                <a href="https://wa.me/254737509399?text=Emergency%20-%20Please%20contact%20me" target="_blank" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-semibold text-center transition-colors">
+                                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Media -->
+                        <div class="bg-white rounded-xl shadow-lg p-6">
+                            <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                <i class="fas fa-share-alt text-purple-500 mr-3"></i>
+                                Follow Us
+                            </h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center text-white hover:bg-pink-700 transition-colors">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-red-700 transition-colors">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center text-white hover:bg-blue-500 transition-colors">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6">Frequently Asked Questions</h2>
+                <p class="text-xl text-gray-600">Quick answers to common questions</p>
+            </div>
+            
+            <div class="space-y-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>What should I expect on my first visit?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">You can expect a warm welcome from our hospitality team, contemporary worship music, and a practical Bible-based message. Services typically last 90 minutes. Come as you are - there's no dress code!</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>Do you have programs for children?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">Yes! We have age-appropriate programs for children from toddlers to teenagers. Our Children's Ministry runs during all Sunday services, and we have dedicated youth programs throughout the week.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>How can I get involved in ministry?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">We'd love to help you find your place to serve! Visit our Ministries page, attend a Connect class, or speak with one of our ministry leaders after service. There are opportunities for every skill level and interest.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>Do you offer baptism?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">Absolutely! We hold baptism services regularly. If you've made the decision to follow Christ and want to be baptized, please contact us to learn about our next baptism class and service.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>Is parking available?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">Yes, we have ample parking available on-site. Our parking team will help direct you to available spaces. We also have designated spots for visitors and families with young children.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-gray-50 rounded-lg">
+                    <button class="faq-question w-full text-left p-6 font-semibold text-gray-800 hover:text-blue-600 focus:outline-none flex justify-between items-center">
+                        <span>Can I request prayer?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-6">
+                        <p class="text-gray-600">Of course! You can submit prayer requests through our contact form, speak with a pastor after service, or join our prayer ministry. We believe in the power of prayer and would be honored to pray with you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">City On The Hill Church International</h3>
+                    <p class="text-gray-300 mb-4">Shining the Light of Christ to the Nations</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-yellow-400 transition-colors">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="https://wa.me/254737509399" target="_blank" class="text-gray-300 hover:text-green-400 transition-colors">
+                            <i class="fab fa-whatsapp text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-300 hover:text-yellow-400 transition-colors">About Us</a></li>
+                        <li><a href="services.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Services</a></li>
+                        <li><a href="sermons.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Sermons</a></li>
+                        <li><a href="ministries.html" class="text-gray-300 hover:text-yellow-400 transition-colors">Ministries</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Service Times</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>Sunday: 9:00 AM & 11:30 AM</li>
+                        <li>Wednesday: 7:00 PM</li>
+                        <li>Friday: 7:00 PM</li>
+                        <li>Saturday: 6:00 PM</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>
+                            <i class="fas fa-phone mr-2"></i>
+                            <a href="tel:+254737509399" class="hover:text-yellow-400 transition-colors">+254 737 509 399</a>
+                        </li>
+                        <li>
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            <a href="https://wa.me/254737509399" target="_blank" class="hover:text-green-400 transition-colors">WhatsApp</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope mr-2"></i>
+                            <a href="mailto:cityonthehill.mi@gmail.com" class="hover:text-yellow-400 transition-colors">cityonthehill.mi@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2024 City On The Hill Church International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ functionality
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const faqContent = faqItem.querySelector('.faq-content');
+                const icon = question.querySelector('i');
+                
+                // Close all other FAQ items
+                faqQuestions.forEach(otherQuestion => {
+                    if (otherQuestion !== question) {
+                        const otherItem = otherQuestion.parentElement;
+                        const otherContent = otherItem.querySelector('.faq-content');
+                        const otherIcon = otherQuestion.querySelector('i');
+                        
+                        otherContent.classList.remove('active');
+                        otherIcon.style.transform = 'rotate(0deg)';
+                    }
+                });
+                
+                // Toggle current FAQ item
+                faqContent.classList.toggle('active');
+                if (faqContent.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+            
+            // Show loading state
+            button.textContent = 'Sending Message...';
+            button.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                button.textContent = 'Message Sent Successfully!';
+                button.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                
+                // Reset form after success message
+                setTimeout(() => {
+                    this.reset();
+                    button.textContent = originalText;
+                    button.style.background = 'linear-gradient(135deg, #f59e0b, #fbbf24)';
+                    button.disabled = false;
+                }, 3000);
+            }, 2000);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form validation enhancement
+        const formInputs = document.querySelectorAll('.form-input');
+        
+        formInputs.forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.hasAttribute('required') && !this.value.trim()) {
+                    this.style.borderColor = '#ef4444';
+                } else {
+                    this.style.borderColor = '#d1d5db';
+                }
+            });
+            
+            input.addEventListener('input', function() {
+                if (this.style.borderColor === 'rgb(239, 68, 68)') {
+                    this.style.borderColor = '#d1d5db';
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'990c185650208a67',t:'MTc2MDgzMzA3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
